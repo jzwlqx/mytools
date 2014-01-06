@@ -1,0 +1,57 @@
+"vundle
+set nocompatible              " be iMproved
+filetype off                  " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'Solarized'
+Bundle 'Markdown'
+Bundle 'project.vim'
+Bundle 'ctrlp.vim'
+
+filetype plugin indent on
+
+"tags
+
+"color and font
+if has("gui_running")
+    set bg=dark
+    colorscheme solarized
+    set guifont=Droid\ Sans\ Mono\ 11
+else
+    colorscheme default
+endif
+
+"syntax
+
+if has("autocmd")
+    filetype plugin on
+    augroup te
+        autocmd BufRead,BufNewFile *.te set filetype=te
+        autocmd BufRead,BufNewFile *.if set filetype=te
+    augroup END
+endif
+
+set hlsearch
+set incsearch
+set number
+set autoindent
+set smartindent
+set showcmd
+
+set smarttab
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set fileencodings=utf-8,gbk,ucs-bom,cp936,iso-8859-1
+
+set guioptions-=m
+set guioptions-=T
+set guioptions-=L 
+
+"clang
+let g:clang_complete_auto = 1
+let g:clang_use_library = 1
+let g:clang_debug = 1
+

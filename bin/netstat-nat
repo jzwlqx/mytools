@@ -1,0 +1,21 @@
+#!/usr/bin/env python
+
+class Connection(object):
+    def __init__(self, line):
+        if line:
+            self._parse(line)
+
+    def _parse(self, line):
+        arr = line.split()
+        net_protocol = arr[0]
+        trans_protocol = arr[2]
+        expire = arr[4]
+        if trans_protocol == 'tcp':
+            state = arr[5]
+            rest = arr[6:]
+        else:
+            rest=arr[5:]
+
+
+if __name__ == '__main__':
+    pass

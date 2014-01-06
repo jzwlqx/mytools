@@ -1,0 +1,23 @@
+#!/bin/bash
+
+pattern=$1
+dir=$2
+
+tmp=$(mktemp -d)
+
+trap "rm -rf $tmp" EXIT
+
+if [ ! -d "$dir" ]; then
+    echo "$dir is not exists"
+fi
+
+for jar in $dir/*.jar
+do
+    chmod 744 -R $tmp
+    rm -rf $tmp/*
+    unzip -q -d $tmp $jar
+    if grep "$pattern" -R $tmp/* 2>/dev/null; then
+        echo found in $jar
+    fi
+done
+

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if (($#<2)); then
+    echo "Usage: $0 big small."
+    echo "output: big - small (line in big but not in small)"
+    exit 1
+fi
+
+small=$2
+big=$1
+
+awk 'FNR==NR{s[$0]=1}FNR<NR{if(s[$0]!=1){print $0}}' $small $big
+

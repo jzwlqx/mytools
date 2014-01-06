@@ -1,0 +1,27 @@
+#!/bin/bash
+
+b1=$1
+b2=$2
+
+if [ -z "$b1" -o  -z "$b2" ]; then
+    echo "usage: $0 branch1 branch2"
+    exit 1
+fi
+
+tmp=$(mktemp -d)
+
+#trap "rm -rf $tmp" EXIT
+
+cd $tmp
+svn co $b2 to
+cd to
+version=$(svn log --stop-on-copy "$b1" | awk '$1~/^r[0-9]+/{print $1}'|tail -n1)
+echo Oldest Version: $version
+svn merge -$version:HEAD $b1 
+
+read -p "Check In? (Y/N)" ci
+
+if [ "$ci" = "Y" ]; then
+    svn ci -m "merge from $b1"
+fi
+

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+abspath=$(readlink -f $1)
+ips=$(ip addr show|awk '$1=="inet"{split($2, a, "/"); print a[1]}') 
+for ip in $ips
+do
+    echo "rsync -av jjz@$ip:$abspath"
+done
