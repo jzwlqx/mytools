@@ -5,10 +5,12 @@ filetype off                  " required!
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+Bundle 'vundle'
 Bundle 'Solarized'
 Bundle 'Markdown'
-Bundle 'project.vim'
 Bundle 'ctrlp.vim'
+Bundle 'The-NERD-tree'
+Bundle 'comment.vim'
 
 filetype plugin indent on
 
@@ -54,4 +56,7 @@ set guioptions-=L
 let g:clang_complete_auto = 1
 let g:clang_use_library = 1
 let g:clang_debug = 1
+
+" map
+nnoremap <Leader>nt :NERDTree<CR>
 
