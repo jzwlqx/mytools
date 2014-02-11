@@ -10,7 +10,9 @@ Bundle 'Solarized'
 Bundle 'Markdown'
 Bundle 'ctrlp.vim'
 Bundle 'The-NERD-tree'
-Bundle 'comment.vim'
+Bundle 'tComment'
+Bundle 'xml.vim'
+Bundle 'taglist.vim'
 
 filetype plugin indent on
 
@@ -57,6 +59,12 @@ let g:clang_complete_auto = 1
 let g:clang_use_library = 1
 let g:clang_debug = 1
 
+"tag list
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+
 " map
 nnoremap <Leader>nt :NERDTree<CR>
+inoremap { {}<ESC>i<CR><ESC>O
+autocmd BufRead,BufNewFile *.json nnoremap <Leader>j :%!python -m json.tool<CR>
 
