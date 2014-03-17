@@ -10,7 +10,7 @@ fi
 
 tmp=$(mktemp -d)
 
-trap "rm -rf $tmp" EXIT
+#trap "rm -rf $tmp" EXIT
 
 cd $tmp
 svn co $b2 to

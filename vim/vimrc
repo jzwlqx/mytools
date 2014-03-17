@@ -54,6 +54,8 @@ set guioptions-=m
 set guioptions-=T
 set guioptions-=L 
 
+set vb t_vb=
+
 "clang
 let g:clang_complete_auto = 1
 let g:clang_use_library = 1
@@ -65,6 +67,5 @@ let Tlist_Exit_OnlyWindow=1
 
 " map
 nnoremap <Leader>nt :NERDTree<CR>
-inoremap { {}<ESC>i<CR><ESC>O
 autocmd BufRead,BufNewFile *.json nnoremap <Leader>j :%!python -m json.tool<CR>
 
