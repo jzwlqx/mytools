@@ -4,12 +4,26 @@ import pexpect
 import os.path
 import ConfigParser
 import sys
+import signal
+
+child = None
+
+def sigwinch_passthrough (sig, data):
+    # Check for buggy platforms (see pexpect.setwinsize()).
+    if 'TIOCGWINSZ' in dir(termios):
+        TIOCGWINSZ = termios.TIOCGWINSZ
+    else:
+        TIOCGWINSZ = 1074295912 # assume
+    s = struct.pack ("HHHH", 0, 0, 0, 0)
+    a = struct.unpack ('HHHH', fcntl.ioctl(sys.stdout.fileno(), TIOCGWINSZ , s))
+    child.setwinsize(a[0],a[1])
 
 def ssh(host, user, password):
+    global child
     child = pexpect.spawn("ssh %s@%s" % (user, host))
     #child.logfile = sys.stdout
     try:
-        i = child.expect(["yes/no", "Password", r"#|\$"])
+        i = child.expect(["(?i)yes/no", "(?i)Password", r"#|\$"])
         if i == 0:
             child.sendline("yes")
         elif i == 1:
@@ -17,6 +31,7 @@ def ssh(host, user, password):
                 print >> stderr, "need password."
                 child.terminate()
             child.sendline("%s" % (password))
+        signal.signal(signal.SIGWINCH, sigwinch_passthrough)
         child.interact()
     except pexpect.EOF:
         print >> stderr, "Remote close connection."
