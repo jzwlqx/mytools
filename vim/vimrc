@@ -2,18 +2,19 @@
 set nocompatible              " be iMproved
 filetype off                  " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'vundle'
-Bundle 'Solarized'
-Bundle 'Markdown'
-Bundle 'ctrlp.vim'
-Bundle 'The-NERD-tree'
-Bundle 'tComment'
-Bundle 'xml.vim'
-Bundle 'taglist.vim'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'Markdown'
+Plugin 'Solarized'
+Plugin 'ctrlp.vim'
+Plugin 'The-NERD-tree'
+Plugin 'tComment'
+Plugin 'JSON.vim'
+Plugin 'fatih/vim-go'
 
+call vundle#end()
 filetype plugin indent on
 
 "tags
@@ -22,7 +23,7 @@ filetype plugin indent on
 if has("gui_running")
     set bg=dark
     colorscheme solarized
-    set guifont=Droid\ Sans\ Mono\ 11
+    set guifont=Monaco:h15
 else
     colorscheme default
 endif
@@ -43,11 +44,14 @@ set number
 set autoindent
 set smartindent
 set showcmd
+set ruler
 
+syntax on
 set smarttab
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set encoding=utf-8
 set fileencodings=utf-8,gbk,ucs-bom,cp936,iso-8859-1
 
 set guioptions-=m
@@ -64,6 +68,9 @@ let g:clang_debug = 1
 "tag list
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
+
+let g:NERDTreeChDirMode       = 2
+let g:ctrlp_working_path_mode = 'rw'
 
 " map
 nnoremap <Leader>nt :NERDTree<CR>
