@@ -30,6 +30,6 @@ if [ -e $vimrc ]; then
     mv $vimrc ${vimrc}.old
 fi
 
-ln -s $(pwd)/vim/vimrc $vimrc
+ln -s $(pwd)/mytools/vim/vimrc $vimrc
 green "Finish."
 
