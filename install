@@ -25,11 +25,11 @@ git clone https://github.com/jiangjizhong/mytools.git
 
 green "Create link"
 vimrc=~/.vimrc
-if [ -f $vimrc ]; then
+if [ -e $vimrc ]; then
     red "$vimrc exists. Will be move to $vimrc.old"
     mv $vimrc ${vimrc}.old
 fi
 
-ln -s vim/vimrc $vimrc
-greend "Finish."
+ln -s $(pwd)/vim/vimrc $vimrc
+green "Finish."
 
