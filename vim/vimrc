@@ -13,6 +13,7 @@ Plugin 'The-NERD-tree'
 Plugin 'tComment'
 Plugin 'JSON.vim'
 Plugin 'fatih/vim-go'
+Plugin 'yaml.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -25,7 +26,9 @@ if has("gui_running")
     colorscheme solarized
     set guifont=Monaco:h15
 else
-    colorscheme default
+    "colorscheme default
+    set background=dark
+    colorscheme solarized
 endif
 
 "syntax
@@ -74,5 +77,6 @@ let g:ctrlp_working_path_mode = 'rw'
 
 " map
 nnoremap <Leader>nt :NERDTree<CR>
+nnoremap <Leader>p :set paste<CR>
 autocmd BufRead,BufNewFile *.json nnoremap <Leader>j :%!python -m json.tool<CR>
 
