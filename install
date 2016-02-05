@@ -26,8 +26,7 @@ link_to(){
     green "Create link $symbol --> $src"
     if [ -e "$symbol" ]; then
         red "$symbol exists. Will be move to $symbol.old"
-        dir=$(dirname $symbol)
-        mv $symbol $dir/$symbol.old
+        mv $symbol $symbol.old
     fi
     ln -s $src $symbol
 }
