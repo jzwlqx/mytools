@@ -22,11 +22,10 @@ filetype plugin indent on
 
 "color and font
 if has("gui_running")
-    set bg=dark
+    set background=dark
     colorscheme solarized
     set guifont=Monaco:h15
 else
-    "colorscheme default
     set background=dark
     colorscheme solarized
 endif
@@ -75,8 +74,18 @@ let Tlist_Exit_OnlyWindow=1
 let g:NERDTreeChDirMode       = 2
 let g:ctrlp_working_path_mode = 'rw'
 
+
 " map
 nnoremap <Leader>nt :NERDTree<CR>
 nnoremap <Leader>p :set paste<CR>
 autocmd BufRead,BufNewFile *.json nnoremap <Leader>j :%!python -m json.tool<CR>
+
+" split switch
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+set backspace=indent,eol,start
+
 
