@@ -13,7 +13,9 @@ Plugin 'The-NERD-tree'
 Plugin 'tComment'
 Plugin 'JSON.vim'
 Plugin 'fatih/vim-go'
+Plugin 'scrooloose/syntastic'
 Plugin 'yaml.vim'
+Plugin 'christoomey/vim-tmux-navigator'
 
 call vundle#end()
 filetype plugin indent on
@@ -27,6 +29,10 @@ if has("gui_running")
     set guifont=Monaco:h15
 else
     set background=dark
+    set t_Co=256
+    let g:solarized_visibility = "high"
+    let g:solarized_contrast = "high"
+    let g:solarized_termcolors=16
     colorscheme solarized
 endif
 
@@ -77,7 +83,11 @@ let g:ctrlp_working_path_mode = 'rw'
 
 " map
 nnoremap <Leader>nt :NERDTree<CR>
+nnoremap <Leader>ntf :NERDTreeFind<CR>
 nnoremap <Leader>p :set paste<CR>
+nnoremap <Leader>v :vsplit<CR>
+nnoremap <Leader>s :split<CR>
+nnoremap <Leader>gd :GoDecls<CR>
 autocmd BufRead,BufNewFile *.json nnoremap <Leader>j :%!python -m json.tool<CR>
 
 " split switch
@@ -87,5 +97,4 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 set backspace=indent,eol,start
-
 
