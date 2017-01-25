@@ -90,7 +90,7 @@ nnoremap <Leader>s :split<CR>
 nnoremap <Leader>gd :GoDecls<CR>
 autocmd BufRead,BufNewFile *.json nnoremap <Leader>j :%!python -m json.tool<CR>
 
-" split switch
+"shortcut for switch split
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
