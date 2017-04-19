@@ -13,9 +13,12 @@ Plugin 'The-NERD-tree'
 Plugin 'tComment'
 Plugin 'JSON.vim'
 Plugin 'fatih/vim-go'
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 Plugin 'yaml.vim'
 Plugin 'christoomey/vim-tmux-navigator'
+"Plugin 'easymotion/vim-easymotion'
+"Plugin 'surround.vim'
+"Plugin 'Auto-Pairs'
 
 call vundle#end()
 filetype plugin indent on
@@ -53,8 +56,8 @@ set autoindent
 set smartindent
 set showcmd
 set ruler
-
 syntax on
+
 set smarttab
 set tabstop=4
 set shiftwidth=4
@@ -67,6 +70,8 @@ set guioptions-=T
 set guioptions-=L 
 
 set vb t_vb=
+
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 "clang
 let g:clang_complete_auto = 1
@@ -88,6 +93,7 @@ nnoremap <Leader>p :set paste<CR>
 nnoremap <Leader>v :vsplit<CR>
 nnoremap <Leader>s :split<CR>
 nnoremap <Leader>gd :GoDecls<CR>
+
 autocmd BufRead,BufNewFile *.json nnoremap <Leader>j :%!python -m json.tool<CR>
 
 "shortcut for switch split
