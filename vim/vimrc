@@ -15,7 +15,10 @@ Plugin 'JSON.vim'
 Plugin 'fatih/vim-go'
 "Plugin 'scrooloose/syntastic'
 Plugin 'yaml.vim'
+Plugin 'majutsushi/tagbar'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'easymotion/vim-easymotion'
 "Plugin 'surround.vim'
 "Plugin 'Auto-Pairs'
@@ -83,7 +86,7 @@ let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
 
 let g:NERDTreeChDirMode       = 2
-let g:ctrlp_working_path_mode = 'rw'
+let g:ctrlp_working_path_mode = 0
 
 
 " map
@@ -93,6 +96,7 @@ nnoremap <Leader>p :set paste<CR>
 nnoremap <Leader>v :vsplit<CR>
 nnoremap <Leader>s :split<CR>
 nnoremap <Leader>gd :GoDecls<CR>
+
 
 autocmd BufRead,BufNewFile *.json nnoremap <Leader>j :%!python -m json.tool<CR>
 
