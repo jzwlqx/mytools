@@ -96,6 +96,7 @@ nnoremap <Leader>p :set paste<CR>
 nnoremap <Leader>v :vsplit<CR>
 nnoremap <Leader>s :split<CR>
 nnoremap <Leader>gd :GoDecls<CR>
+inoremap jj <ESC>
 
 
 autocmd BufRead,BufNewFile *.json nnoremap <Leader>j :%!python -m json.tool<CR>
