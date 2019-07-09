@@ -1,30 +1,22 @@
-"vundle
-set nocompatible              " be iMproved
-filetype off                  " required!
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'gmarik/Vundle.vim'
-Plugin 'Markdown'
-Plugin 'Solarized'
-Plugin 'ctrlp.vim'
-Plugin 'The-NERD-tree'
-Plugin 'tComment'
-Plugin 'JSON.vim'
-Plugin 'fatih/vim-go'
-"Plugin 'scrooloose/syntastic'
-Plugin 'yaml.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'easymotion/vim-easymotion'
-"Plugin 'surround.vim'
-"Plugin 'Auto-Pairs'
+Plug 'vim-scripts/Markdown'
+Plug 'vim-scripts/Solarized'
+Plug 'vim-scripts/ctrlp.vim'
+Plug 'vim-scripts/The-NERD-tree'
+Plug 'vim-scripts/tComment'
+Plug 'vim-scripts/JSON.vim'
+Plug 'fatih/vim-go'
+Plug 'w0rp/ale'
+Plug 'vim-scripts/yaml.vim'
+Plug 'majutsushi/tagbar'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
-call vundle#end()
-filetype plugin indent on
+call plug#end()
+
 
 "tags
 
@@ -59,7 +51,6 @@ set autoindent
 set smartindent
 set showcmd
 set ruler
-syntax on
 
 set smarttab
 set tabstop=4
@@ -96,7 +87,7 @@ nnoremap <Leader>p :set paste<CR>
 nnoremap <Leader>v :vsplit<CR>
 nnoremap <Leader>s :split<CR>
 nnoremap <Leader>gd :GoDecls<CR>
-inoremap jj <ESC>
+"inoremap jj <ESC>
 
 
 autocmd BufRead,BufNewFile *.json nnoremap <Leader>j :%!python -m json.tool<CR>
