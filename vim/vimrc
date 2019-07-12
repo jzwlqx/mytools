@@ -1,24 +1,25 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'vim-scripts/Markdown'
-Plug 'vim-scripts/Solarized'
-Plug 'vim-scripts/ctrlp.vim'
-Plug 'vim-scripts/The-NERD-tree'
-Plug 'vim-scripts/tComment'
-Plug 'vim-scripts/JSON.vim'
-Plug 'fatih/vim-go'
+Plug 'plasticboy/vim-markdown'
+Plug 'altercation/vim-colors-solarized'
+Plug 'kien/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'tomtom/tcomment_vim'
+Plug 'elzr/vim-json'
 Plug 'w0rp/ale'
 Plug 'vim-scripts/yaml.vim'
 Plug 'majutsushi/tagbar'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'simeji/winresizer'
 
 call plug#end()
 
 
 "tags
+set tags=./.tags;,.tags
 
 "color and font
 if has("gui_running")
@@ -100,3 +101,6 @@ map <C-l> <C-W>l
 
 set backspace=indent,eol,start
 
+"resize
+let g:winresizer_vert_resize=2
+let g:winresizer_horiz_resize=1
