@@ -35,16 +35,7 @@ else
     colorscheme solarized
 endif
 
-"syntax
-
-if has("autocmd")
-    filetype plugin on
-    augroup te
-        autocmd BufRead,BufNewFile *.te set filetype=te
-        autocmd BufRead,BufNewFile *.if set filetype=te
-    augroup END
-endif
-
+"common configuration
 set hlsearch
 set incsearch
 set number
@@ -59,13 +50,14 @@ set shiftwidth=4
 set expandtab
 set encoding=utf-8
 set fileencodings=utf-8,gbk,ucs-bom,cp936,iso-8859-1
+set vb t_vb= "disable beeping
 
+"for gui
 set guioptions-=m
 set guioptions-=T
 set guioptions-=L 
 
-set vb t_vb=
-
+"for yaml
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 "clang
@@ -73,13 +65,19 @@ let g:clang_complete_auto = 1
 let g:clang_use_library = 1
 let g:clang_debug = 1
 
+"json
+autocmd BufRead,BufNewFile *.json nnoremap <Leader>j :%!python -m json.tool<CR>
+
 "tag list
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
 
+"nerdtree
 let g:NERDTreeChDirMode       = 2
-let g:ctrlp_working_path_mode = 0
+let g:NERDTreeMapOpenInTab = '\r'
 
+"ctrlp
+let g:ctrlp_working_path_mode = 0
 
 " map
 nnoremap <Leader>nt :NERDTree<CR>
@@ -88,10 +86,8 @@ nnoremap <Leader>p :set paste<CR>
 nnoremap <Leader>v :vsplit<CR>
 nnoremap <Leader>s :split<CR>
 nnoremap <Leader>gd :GoDecls<CR>
-"inoremap jj <ESC>
-
-
-autocmd BufRead,BufNewFile *.json nnoremap <Leader>j :%!python -m json.tool<CR>
+nnoremap <C-n> :tabnext<CR>
+nnoremap <C-b> :tabprevious<CR>
 
 "shortcut for switch split
 map <C-j> <C-W>j
