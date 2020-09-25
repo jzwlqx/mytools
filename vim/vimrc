@@ -1,19 +1,21 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'plasticboy/vim-markdown'
 Plug 'altercation/vim-colors-solarized'
-Plug 'kien/ctrlp.vim'
-Plug 'scrooloose/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'preservim/nerdtree'
 Plug 'tomtom/tcomment_vim'
 Plug 'elzr/vim-json'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'vim-scripts/yaml.vim'
 Plug 'majutsushi/tagbar'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+"Plug 'bling/vim-bufferline'
 Plug 'simeji/winresizer'
+"Plug 'Yggdroot/indentLine'
+"Plug 'tell-k/vim-autopep8'
 
 call plug#end()
 
@@ -57,6 +59,21 @@ set guioptions-=m
 set guioptions-=T
 set guioptions-=L 
 
+nnoremap <Leader>p :set paste<CR>
+nnoremap <Leader>v :vsplit<CR>
+nnoremap <Leader>s :split<CR>
+nnoremap <C-n> :tabnext<CR>
+nnoremap <C-b> :tabprevious<CR>
+
+"shortcut for switch split
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+set backspace=indent,eol,start
+
+
 "for yaml
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
@@ -75,28 +92,27 @@ let Tlist_Exit_OnlyWindow=1
 "nerdtree
 let g:NERDTreeChDirMode       = 2
 let g:NERDTreeMapOpenInTab = '\r'
+nnoremap <Leader>nt :NERDTree<CR>
+nnoremap <Leader>ntf :NERDTreeFind<CR>
 
 "ctrlp
 let g:ctrlp_working_path_mode = 0
 
-" map
-nnoremap <Leader>nt :NERDTree<CR>
-nnoremap <Leader>ntf :NERDTreeFind<CR>
-nnoremap <Leader>p :set paste<CR>
-nnoremap <Leader>v :vsplit<CR>
-nnoremap <Leader>s :split<CR>
-nnoremap <Leader>gd :GoDecls<CR>
-nnoremap <C-n> :tabnext<CR>
-nnoremap <C-b> :tabprevious<CR>
-
-"shortcut for switch split
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-
-set backspace=indent,eol,start
-
 "resize
+"press Ctrl-E to resize the window
 let g:winresizer_vert_resize=2
 let g:winresizer_horiz_resize=1
+
+"ale
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
+let g:ale_fixers = { 
+\    'python': ['isort', 'reorder-python-imports', 'yapf'] 
+\}
+
+let g:ale_linters = {'python': ['pylint']}
+
+nnoremap <Leader>f :ALEFix<CR>
+
+"indentLine
+
