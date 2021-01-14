@@ -24,18 +24,18 @@ call plug#end()
 set tags=./.tags;,.tags
 
 "color and font
-if has("gui_running")
-    set background=dark
-    colorscheme solarized
-    set guifont=Monaco:h15
-else
-    set background=dark
-    set t_Co=256
-    let g:solarized_visibility = "high"
-    let g:solarized_contrast = "high"
-    let g:solarized_termcolors=16
-    colorscheme solarized
-endif
+" if has("gui_running")
+"     set background=dark
+"     colorscheme solarized
+"     set guifont=Monaco:h15
+" else
+"     set background=dark
+"     set t_Co=256
+"     let g:solarized_visibility = "high"
+"     let g:solarized_contrast = "high"
+"     let g:solarized_termcolors=16
+"     colorscheme solarized
+" endif
 
 "common configuration
 set hlsearch
